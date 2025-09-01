@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}{{ brand.name }} · {{ brand.slogan }}{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <meta name="description" content="Inventario Teiprometal: CRUD de productos con Flask y SQLite.">
+</head>
+<body>
+  <header class="header">
+    <div class="wrap header__bar">
+      <a class="logo" href="{{ url_for('index') }}">{{ brand.name }}</a>
+      <nav class="nav">
+        <a class="nav__link {{ 'is-active' if request.endpoint == 'productos_list' else '' }}" href="{{ url_for('productos_list') }}">Inventario</a>
+        <a class="nav__link {{ 'is-active' if request.endpoint == 'about' else '' }}" href="{{ url_for('about') }}">Acerca de</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    {% with msgs = get_flashed_messages(with_categories=true) %}
+      {% if msgs %}
+        <div class="flash">
+          {% for cat, m in msgs %}
+            <div class="flash__msg flash--{{ cat }}">{{ m }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div><strong>{{ brand.name }}</strong><br>{{ brand.tagline }}</div>
+      <div>© {{ current_year }} · Camilo Ponce Enríquez, Azuay</div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Crear' if modo == 'crear' else 'Editar' }} producto · {{ brand.name }}{% endblock %}
+{% block content %}
+<section class="section">
+  <h1>{{ 'Nuevo producto' if modo == 'crear' else 'Editar producto' }}</h1>
+
+  <form method="post" class="form" novalidate>
+    {{ form.hidden_tag() }}
+
+    {% if modo == 'crear' %}
+      <label>{{ form.id.label }} {{ form.id(min=1) }}</label>
+      {% for e in form.id.errors %}<div class="err">{{ e }}</div>{% endfor %}
+    {% endif %}
+
+    <label>{{ form.nombre.label }} {{ form.nombre(maxlength=80) }}</label>
+    {% for e in form.nombre.errors %}<div class="err">{{ e }}</div>{% endfor %}
+
+    <label>{{ form.cantidad.label }} {{ form.cantidad(min=0) }}</label>
+    {% for e in form.cantidad.errors %}<div class="err">{{ e }}</div>{% endfor %}
+
+    <label>{{ form.precio.label }} {{ form.precio(min=0, step="0.01") }}</label>
+    {% for e in form.precio.errors %}<div class="err">{{ e }}</div>{% endfor %}
+
+    {{ form.enviar(class_="btn") }}
+    <a class="btn btn--ghost" href="{{ url_for('productos_list') }}">Cancelar</a>
+  </form>
+</section>
+{% endblock %}

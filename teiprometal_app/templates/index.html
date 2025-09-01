@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Inicio · {{ brand.name }}{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>{{ brand.slogan }}</h1>
+  <p class="lead">{{ brand.tagline }}</p>
+  <a class="btn" href="{{ url_for('productos_list') }}">Ir al Inventario</a>
+</section>
+
+<section class="section">
+  <h2>¿Qué encontrarás?</h2>
+  <ul class="list">
+    <li>CRUD completo de productos con SQLite.</li>
+    <li>POO y colecciones (dict/set/list/tuple) para eficiencia.</li>
+    <li>Validación en formularios (Flask-WTF, CSRF).</li>
+  </ul>
+</section>
+{% endblock %}

@@ -1,0 +1,59 @@
+:root{
+  --wrap: 1000px;
+  --accent: #f59e0b; /* ámbar */
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --surface: #ffffff;
+  --panel: #0f172a;
+  --bg: #f8fafc;
+  --radius: 12px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--ink)}
+a{color:inherit;text-decoration:none}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 16px}
+
+/* Header */
+.header{background:var(--panel);color:#e5e7eb}
+.header__bar{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.logo{font-weight:800}
+.nav{display:flex;gap:10px}
+.nav__link{color:#cbd5e1;padding:8px 12px;border-radius:10px}
+.nav__link:hover,.nav__link.is-active{background:#1f2937;color:#fff}
+
+/* Buttons */
+.btn{display:inline-block;background:var(--accent);color:#111827;border:none;border-radius:10px;padding:10px 14px;font-weight:600;cursor:pointer}
+.btn--sm{padding:6px 10px;font-size:.9rem}
+.btn--ghost{background:transparent;border:1px solid #d1d5db}
+.btn--danger{background:#ef4444;color:#fff}
+
+/* Sections & hero */
+.section{background:var(--surface);border:1px solid #e5e7eb;border-radius:var(--radius);padding:18px;margin:18px 0}
+.hero{margin:18px 0;padding:24px;border-radius:var(--radius);background:linear-gradient(135deg,#111827,#0b0f19);color:#e5e7eb}
+.lead{color:#cbd5e1}
+
+/* Flash messages */
+.flash{margin:12px 0}
+.flash__msg{padding:10px;border-radius:10px;margin:8px 0}
+.flash--success{background:#ecfccb}
+.flash--error{background:#fee2e2}
+
+/* Forms */
+.form label{display:block;margin:10px 0}
+.form input,.form textarea{width:100%;padding:10px;border:1px solid #d1d5db;border-radius:10px}
+.err{color:#b91c1c;font-size:.9rem;margin-top:4px}
+.search{display:flex;gap:8px;margin:10px 0}
+.search input{flex:1}
+
+/* Table-like list */
+.table{display:grid;gap:6px}
+.row{display:grid;grid-template-columns:80px 1fr 120px 120px 120px 180px;gap:10px;align-items:center;background:#fff;border:1px solid #e5e7eb;padding:10px;border-radius:10px}
+.row--head{background:#f3f4f6;font-weight:700}
+.actions{display:flex;gap:6px}
+
+.section__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0}
+.chip{background:#e5e7eb;padding:6px 12px;border-radius:999px}
+.list{margin:0;padding-left:18px}
+.summary{margin-top:12px;font-weight:600}
